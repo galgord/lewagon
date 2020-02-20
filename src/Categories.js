@@ -22,6 +22,7 @@ class Categories extends Component {
  // a method to help handle state.
  handleChange = event => {
   this.props.clicked(event.target.value);
+ document.append(this.props.value)
   };
 // A helper method to help display what JSX gets returned to the App.js file
 decideWhatToShow = () => {

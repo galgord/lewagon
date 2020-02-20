@@ -1,15 +1,37 @@
 .topContainer{
   display: flex;
   padding: 5px;
+  background-color: #F5F6F8
   /* align-content: stretch; */
 }
 .box {
   background-color: rgb(255, 255, 255);
   border-radius: 5px;
   padding: 10px;
+  margin: 5px;
   flex: 1rem;
-  box-shadow: 1px 1px 5px;
+  box-shadow: 6px 3px 7px #88888854;
+
 }
 .text{
-  color: blue;
+  color: #49B3F4;
+}
+.button {
+  transition-duration: 0.4s;
+  background-color: #49B3F4;
+  border-radius: 25px;
+  font-size: 20px;
+  color: white;
+  padding: 8px;
+  margin-top: 10px;
+  width: 200px;
+}
+
+.button:hover {
+  background-color: lightskyblue;
+  
+}
+.btnDiv{
+  display: flex;
+  justify-content: center;
 }

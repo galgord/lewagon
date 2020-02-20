@@ -57,7 +57,9 @@ setAutherVal = (val) => {
     <Categories header="added to req"/>  
     <Categories header="change auther" clicked={this.setAutherVal} value={this.state.autherVal}/>  
     </div>
-    <button type="submit">Submit</button>
+    <div className="btnDiv">  
+    <button className="button">Submit</button>
+    </div>
       </div>
     );
   }
