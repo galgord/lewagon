@@ -72,7 +72,7 @@ decideWhatToShow = () => {
     </form>
       case "reason": 
       return  <form autoComplete="off">
-      <TextField id="outlined-basic" placeholder={this.props.value} variant="outlined" type="text" onChange={this.handleChange}
+      <TextField className="TextField" placeholder={this.props.value} variant="outlined" type="text" onChange={this.handleChange}
 />
     </form>
       case "schedule impact":
@@ -105,7 +105,7 @@ decideWhatToShow = () => {
         )
       case "change auther":
         return <form autoComplete="off">
-        <TextField id="outlined-basic" placeholder={this.props.value} variant="outlined" type="text" onChange={this.handleChange} />
+        <TextField className="TextField" placeholder={this.props.value} variant="outlined" type="text" onChange={this.handleChange} />
       </form>
       default: return
     }

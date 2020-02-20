@@ -54,5 +54,7 @@
 }
 .label{
   padding: 10px;
-
+}
+.TextField{
+  width: 100%;
 }
