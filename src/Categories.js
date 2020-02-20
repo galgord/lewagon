@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Card} from 'react-bootstrap';
-// import Select from 'react-select'
 import './App.css';
 import {MenuItem,InputLabel,FormControl,Select,TextField, Switch} from '@material-ui/core';
 
@@ -22,8 +20,8 @@ class Categories extends Component {
  // a method to help handle state.
  handleChange = event => {
   this.props.clicked(event.target.value);
- document.append(this.props.value)
   };
+
 // A helper method to help display what JSX gets returned to the App.js file
 decideWhatToShow = () => {
  
@@ -78,13 +76,33 @@ decideWhatToShow = () => {
 />
     </form>
       case "schedule impact":
-        return  <Switch
-        inputProps={{ 'aria-label': 'secondary checkbox' }}
-      />
+        return(
+          <div className="radioDiv">
+          <label className="label" >
+        <input type="radio" name="impact" className="radio" value="Yes"
+          checked={this.props.value === "Yes"} onChange={this.handleChange}
+        />Yes</label>
+         <label className="label" >
+        <input type="radio" name="impact" className="radio" value="No"
+          checked={this.props.value === "No"} onChange={this.handleChange}
+        />No</label>
+          </div>
+        )
+
+
       case "added to req": 
-      return <Switch
-      inputProps={{ 'aria-label': 'secondary checkbox' }}
-    />
+        return (
+          <div className="radioDiv">
+          <label className="label" >
+        <input type="radio" name="req" className="radio" value="Yes"
+          checked={this.props.value === "Yes"} onChange={this.handleChange}
+        />Yes</label>
+         <label className="label" >
+        <input type="radio" name="req" className="radio" value="No"
+          checked={this.props.value === "No"} onChange={this.handleChange}
+        />No</label>
+          </div>
+        )
       case "change auther":
         return <form autoComplete="off">
         <TextField id="outlined-basic" placeholder={this.props.value} variant="outlined" type="text" onChange={this.handleChange} />

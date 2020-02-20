@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Categories from './Categories';
-import { Button } from 'react-bootstrap';
-// import {connect} from 'react-redux'
+import axios from 'axios'
 
 // JSON File to get the info from
 const info = {
@@ -21,11 +20,11 @@ class App extends Component {
     statusVal: "",
     timeChange: "",
     resonVal: info.reason,
-    impactVal: true,
-    reqVal: false,
+    impactVal: "No",
+    reqVal: "Yes",
     autherVal: info.author
   }
-  //changing the state
+  //Saving the new state
   setcategoriesVal = (val) => {
       return this.setState({categoriesVal:val})
     }
@@ -41,7 +40,32 @@ setResonVal = (val) => {
 setAutherVal = (val) => {
   return this.setState({autherVal:val})
 }
-
+setImpactVal = (val) => {
+  return this.setState({impactVal:val})
+}
+setReqVal = (val) => {
+  return this.setState({reqVal:val})
+}
+postForm = () => {
+const formAnswers = {
+  categoriesVal: this.state.categoriesVal,
+    statusVal:  this.state.statusVal,
+    timeChange: this.state.timeChange,
+    resonVal: this.state.resonVal,
+    impactVal: this.state.impactVal,
+    reqVal: this.state.resonVal,
+    autherVal: this.state.autherVal
+}
+axios.post(`http://localhost:3000/Answers`, { formAnswers })
+.then(res => {
+  console.log(res);
+  console.log(res.data);
+}).catch(e =>{
+  console.log(e)
+})
+alert("Form Submitted Successfully")
+window.location.reload();
+}
   
   render() {
     return (
@@ -53,12 +77,12 @@ setAutherVal = (val) => {
     <Categories header="reason" clicked={this.setResonVal} value={this.state.resonVal}/>
     </div>
     <div className="topContainer">
-    <Categories header="schedule impact"/>  
-    <Categories header="added to req"/>  
+    <Categories header="schedule impact" clicked={this.setImpactVal} value={this.state.impactVal}/>  
+    <Categories header="added to req" clicked={this.setReqVal} value={this.state.reqVal}/>  
     <Categories header="change auther" clicked={this.setAutherVal} value={this.state.autherVal}/>  
     </div>
     <div className="btnDiv">  
-    <button className="button">Submit</button>
+    <button className="button" onClick={this.postForm}>Submit</button>
     </div>
       </div>
     );
