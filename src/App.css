@@ -1,4 +1,15 @@
 .topContainer{
   display: flex;
-  flex-direction: row;
+  padding: 5px;
+  /* align-content: stretch; */
+}
+.box {
+  background-color: rgb(255, 255, 255);
+  border-radius: 5px;
+  padding: 10px;
+  flex: 1rem;
+  box-shadow: 1px 1px 5px;
+}
+.text{
+  color: blue;
 }

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Card} from 'react-bootstrap';
 // import Select from 'react-select'
+import './App.css';
 import {MenuItem,InputLabel,FormControl,Select,TextField, Switch} from '@material-ui/core';
 
 // JSON File to get the info from
@@ -92,7 +93,8 @@ decideWhatToShow = () => {
   }
   render(){
 return(
-    <div className="topContainer">
+    <div className="box">
+      <p className="text">{this.props.header}</p>
         {this.decideWhatToShow()}
     </div>
     )
